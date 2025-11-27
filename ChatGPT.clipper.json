@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "ChatGPT",
+  "behavior": "create",
+  "noteNameFormat": "{{title}}",
+  "path": "Clippings/ChatGPT/{{selector:time|attr:datetime|date:\"YYYY\"}}",
+  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\ncreated: {{selector:time|attr:datetime|date:\"YYYY-MM-DD\"}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: {{selector:.text-token-text-secondary|text}}\ntimestamp: {{selector:time|attr:datetime}}\ntags:\n  - chatgpt\n  - ai\n  - clipping\n---\n\n## 💬 Konversation\n\n{{selectorHtml:#thread|turndown:codeBlockStyle=fenced,fence=```,preserveCodeLanguage=true}}\n\n---\n\n**🤖 Modell:** {{selector:.text-token-text-secondary|text}} • **📅 Erstellt:** {{selector:time|attr:datetime|date:\"DD.MM.YYYY\"}} • **🔗 Quelle:** [ChatGPT öffnen]({{url}})",
+  "properties": [
+    {
+      "id": "title",
+      "name": "Titel",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "id": "url",
+      "name": "URL",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "id": "created",
+      "name": "Erstellt",
+      "value": "{{selector:time|attr:datetime|date:\"YYYY-MM-DD\"}}",
+      "type": "date"
+    },
+    {
+      "id": "chat_id",
+      "name": "Chat-ID",
+      "value": "{{url|split:\"/\"|slice:-1}}",
+      "type": "text"
+    },
+    {
+      "id": "model",
+      "name": "Modell",
+      "value": "{{selector:.text-token-text-secondary|text}}",
+      "type": "text"
+    },
+    {
+      "id": "timestamp",
+      "name": "Zeitstempel",
+      "value": "{{selector:time|attr:datetime}}",
+      "type": "text"
+    }
+  ],
+  "triggers": [
+    "https://chatgpt.com/c/",
+    "https://chat.openai.com/c/"
+  ]
+}
