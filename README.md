@@ -103,8 +103,82 @@ Verbesserungsvorschläge und Pull Requests sind willkommen!
 
 Dieses Projekt steht unter der MIT-Lizenz.
 
+## 🧪 Entwicklung & Tests
+
+### Voraussetzungen
+
+- Node.js (v16 oder höher)
+- npm
+
+### Setup
+
+```bash
+# Repository klonen
+git clone https://github.com/EduardMayer-IT/ObsidianClipper.git
+cd ObsidianClipper
+
+# Dependencies installieren
+npm install
+```
+
+### Tests ausführen
+
+```bash
+# Tests ausführen
+npm test
+
+# Tests mit Coverage
+npm run coverage
+
+# Tests im Watch-Modus
+npm run test:watch
+```
+
+### Code-Struktur
+
+- `src/htmlToMd.ts` - Turndown-Service mit angepassten Regeln für Tilde-Fences
+- `test/htmlToMd.test.ts` - Unit-Tests für HTML-zu-Markdown-Konvertierung
+- `ChatGPT.clipper.json` - Obsidian Web Clipper Template-Konfiguration
+
+### Technische Details
+
+Das Template verwendet Tilde-Fences (`~~~`) statt Backtick-Fences für Codeblöcke, um Kompatibilitätsprobleme mit verschachtelten Codeblöcken zu vermeiden:
+
+- **Sprach-Erkennung**: Automatische Extraktion der Programmiersprache aus `class="language-*"` oder direkten Klassennamen
+- **Adaptive Fence-Länge**: Wenn der Code selbst `~~~` enthält, werden längere Fences verwendet (z.B. `~~~~`)
+- **Fallback-Strategien**: Unterstützt verschiedene Klassennamen-Muster (`language-js`, `lang-js`, `javascript`, etc.)
+
+#### Warum Tilde-Fences?
+
+**Problem mit Backticks:**
+```markdown
+```javascript
+const code = `template ${string}`;
+``` ← Bricht hier ab wegen der Backticks im Code!
+```
+
+**Lösung mit Tilden:**
+```markdown
+~~~ javascript
+const code = `template ${string}`;
+~~~ ← Funktioniert einwandfrei!
+```
+
+Bei verschachtelten `~~~` im Code werden automatisch längere Fences (`~~~~`) verwendet.
+
+### Coverage-Anforderungen
+
+Das Projekt erfordert eine Mindest-Coverage von 80% für:
+- Lines (Zeilen)
+- Functions (Funktionen)
+- Branches (Verzweigungen)
+- Statements (Anweisungen)
+
+Aktuelle Coverage liegt bei **100% Lines/Functions, 88% Branches**.
+
 ## 🔗 Links
 
 - [Obsidian](https://obsidian.md)
 - [Obsidian Web Clipper](https://obsidian.md/clipper)
 - [ChatGPT](https://chatgpt.com)
+- [Turndown](https://github.com/mixmark-io/turndown) - HTML-zu-Markdown-Konverter

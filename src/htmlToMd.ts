@@ -13,31 +13,38 @@ function extractLanguage(className: string | null): string | undefined {
 
 export function createTurndown(): TurndownService {
   const service = new TurndownService({
+    headingStyle: 'atx',
     codeBlockStyle: 'fenced',
     fence: '~~~',
-    headingStyle: 'atx',
   });
 
-  // Ensure pre>code blocks keep language via tilde fences
+  // Keep the default code block rule but customize it
+  service.keep(function(node) {
+    return node.nodeName === 'PRE' && node.firstChild?.nodeName === 'CODE';
+  });
+
+  // Override with our custom rule for fenced code blocks
   service.addRule('fencedCodeWithLanguage', {
-    filter(node) {
-      if (!(node instanceof (node as any).ownerDocument!.defaultView!.HTMLElement)) return false;
-      const el = node as HTMLElement;
-      if (el.tagName.toLowerCase() !== 'pre') return false;
-      // Only handle <pre><code>…</code></pre>
-      const code = el.querySelector('code');
-      return !!code;
+    filter: function(node, options) {
+      return (
+        options.codeBlockStyle === 'fenced' &&
+        node.nodeName === 'PRE' &&
+        node.firstChild &&
+        node.firstChild.nodeName === 'CODE'
+      );
     },
-    replacement(content, node) {
+    replacement(content, node, options) {
       const pre = node as HTMLElement;
       const code = pre.querySelector('code') as HTMLElement | null;
+      if (!code) return content;
+      
       const lang = extractLanguage(code?.getAttribute('class')) || extractLanguage(pre.getAttribute('class'));
       const info = lang ? lang.toLowerCase() : '';
       // Use innerText to preserve text as-is without nested markup
       const codeText = (code?.textContent ?? '').replace(/\s+$/,'');
-      const fence = '~~~';
       // If code contains ~~~, increase fence length
-      const fenceLen = Math.max(3, ...Array.from(codeText.matchAll(/(~{3,})/g)).map(m => m[0].length));
+      const tildesInCode = Array.from(codeText.matchAll(/(~{3,})/g)).map(m => m[0].length);
+      const fenceLen = tildesInCode.length > 0 ? Math.max(3, ...tildesInCode) + 1 : 3;
       const fenceStr = '~'.repeat(fenceLen);
       const infoStr = info ? ' ' + info : '';
       return `\n${fenceStr}${infoStr}\n${codeText}\n${fenceStr}\n`;
