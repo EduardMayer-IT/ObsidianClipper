@@ -240,6 +240,17 @@ Das Projekt erfordert eine Mindest-Coverage von 80% für:
 
 Aktuelle Coverage liegt bei **100% Lines/Functions, 88% Branches**.
 
+## 🔌 Obsidian-Plugins für erweiterte Funktionalität
+
+Möchtest du Templates direkt in Obsidian erstellen oder erweiterte Automatisierung nutzen?
+
+**Siehe [OBSIDIAN-PLUGINS.md](OBSIDIAN-PLUGINS.md)** für:
+- Templater Plugin (erweiterte Templates)
+- QuickAdd (Automatisierung)
+- Dataview (Metadaten-Organisation)
+- Auto Note Mover (automatische Ordner-Organisation)
+- Format Converter (Code-Block-Formatierung)
+
 ## 🔗 Links
 
 - [Obsidian](https://obsidian.md)
