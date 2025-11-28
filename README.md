@@ -27,13 +27,26 @@ Dieses Template ermöglicht es, ChatGPT-Unterhaltungen mit einem Klick als struk
 
 ## 🚀 Installation
 
-1. Installiere die [Obsidian Web Clipper Extension](https://obsidian.md/clipper) für deinen Browser
-2. Lade die Datei `ChatGPT.clipper.json` herunter
-3. Importiere das Template in Obsidian Web Clipper:
-   - Öffne die Extension-Einstellungen
-   - Gehe zu "Templates"
-   - Klicke auf "Import Template"
-   - Wähle die `ChatGPT.clipper.json` Datei
+**📖 Detaillierte Anleitung:** Siehe **[INSTALLATION.md](INSTALLATION.md)** für Schritt-für-Schritt Anweisungen!
+
+### Schnell-Installation:
+
+1. **Obsidian Web Clipper Extension installieren:**
+   - [Chrome/Edge](https://chrome.google.com/webstore/detail/obsidian-web-clipper/mfhbebkmkecabigjgekfagjdncnjijai)
+   - [Firefox](https://addons.mozilla.org/de/firefox/addon/obsidian-web-clipper/)
+
+2. **Template herunterladen:**
+   - Klicke auf [ChatGPT.clipper.json](https://raw.githubusercontent.com/EduardMayer-IT/ObsidianClipper/main/ChatGPT.clipper.json)
+   - Rechtsklick → "Speichern unter..." (oder Strg+S / Cmd+S)
+
+3. **Template importieren:**
+   - Öffne Obsidian Web Clipper Extension → Einstellungen (⚙️)
+   - Gehe zu "Templates" → "Import Template"
+   - Wähle die heruntergeladene `ChatGPT.clipper.json` Datei
+
+4. **Vault verbinden** (falls noch nicht geschehen):
+   - In Clipper-Einstellungen → "Vault" → "Connect"
+   - Wähle deinen Obsidian-Vault aus
 
 ## 📝 Verwendung
 
