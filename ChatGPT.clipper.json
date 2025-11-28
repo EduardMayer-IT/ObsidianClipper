@@ -4,7 +4,7 @@
   "behavior": "create",
   "noteNameFormat": "{{title}}",
   "path": "Clippings/ChatGPT/{{selector:time|attr:datetime|date:\"YYYY\"}}",
-  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: ChatGPT\ntags:\n  - chatgpt\n  - clipping\n---\n\n## 💬 Konversation\n\n{{content}}\n\n---\n\n**🔗 Quelle:** [ChatGPT öffnen]({{url}})",
+  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: ChatGPT\ntags:\n  - chatgpt\n  - clipping\n---\n\n## 💬 Konversation\n\n{{content}}",
   "properties": [
     {
       "id": "title",

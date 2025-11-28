@@ -37,10 +37,60 @@ Dieses Template ermöglicht es, ChatGPT-Unterhaltungen mit einem Klick als struk
 
 ## 📝 Verwendung
 
+### Basis-Verwendung
+
 1. Öffne eine ChatGPT-Konversation auf `chatgpt.com` oder `chat.openai.com`
-2. Klicke auf das Obsidian Web Clipper Icon in deinem Browser
-3. Wähle das "ChatGPT" Template
-4. Die Konversation wird automatisch in Obsidian gespeichert
+2. **Markiere die gesamte Konversation** (wichtig: manuelle Markierung erforderlich)
+   - ⚠️ **Wichtig:** Stelle sicher, dass **alle Code-Blöcke** mit markiert sind!
+   - Markiere von oben nach unten den gesamten Konversationsbereich
+   - Code-Blöcke sollten beim Markieren einen grauen Hintergrund zeigen
+3. Klicke auf das Obsidian Web Clipper Icon in deinem Browser
+4. Wähle das "ChatGPT" Template
+5. Die Konversation wird automatisch in Obsidian gespeichert
+
+### ⚠️ Code-Blöcke werden nicht angezeigt?
+
+Siehe **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** für detaillierte Hilfe!
+
+**Schnelllösung:** Falls Code-Blöcke mit Backticks erfasst wurden:
+```bash
+npm run convert "Pfad/zur/Datei.md"
+```
+
+### Post-Processing: Code-Blöcke prüfen und konvertieren
+
+**1. Prüfe, ob Code-Blöcke vorhanden sind und welches Format sie verwenden:**
+
+```bash
+# Einzelne Datei prüfen
+npm run check "Clippings/ChatGPT/2024/Meine-Konversation.md"
+
+# Gesamtes Verzeichnis prüfen
+npm run check Clippings/ChatGPT
+```
+
+**2. Falls Code-Blöcke mit Backticks erfasst wurden, konvertiere sie:**
+
+```bash
+# Einzelne Datei konvertieren
+npm run convert "Clippings/ChatGPT/2024/Meine-Konversation.md"
+
+# Gesamtes Verzeichnis rekursiv konvertieren
+npm run convert Clippings/ChatGPT
+
+# Prüfen UND automatisch konvertieren
+npm run check:convert "Clippings/ChatGPT/2024/Meine-Konversation.md"
+
+# Dry-Run (zeigt was konvertiert würde, ohne Änderungen zu schreiben)
+npm run convert:dry-run Clippings/ChatGPT
+```
+
+**Features des Post-Processing-Scripts:**
+- ✅ Konvertiert Code-Blöcke von Backticks (` ``` `) zu Tilde-Fences (`~~~`)
+- ✅ Behält Sprach-Informationen bei (` ```javascript` → `~~~ javascript`)
+- ✅ Adaptive Fence-Länge: Wenn Code Tilden enthält, werden längere Fences verwendet
+- ✅ Rekursive Verarbeitung von Verzeichnissen
+- ✅ Dry-Run Modus zum Testen ohne Änderungen
 
 ## 📂 Dateistruktur
 
@@ -137,7 +187,9 @@ npm run test:watch
 ### Code-Struktur
 
 - `src/htmlToMd.ts` - Turndown-Service mit angepassten Regeln für Tilde-Fences
+- `src/convertBackticksToTildes.ts` - Post-Processing-Script zur Konvertierung von Backticks zu Tilden
 - `test/htmlToMd.test.ts` - Unit-Tests für HTML-zu-Markdown-Konvertierung
+- `test/convertBackticksToTildes.test.ts` - Unit-Tests für Post-Processing-Script
 - `ChatGPT.clipper.json` - Obsidian Web Clipper Template-Konfiguration
 
 ### Technische Details

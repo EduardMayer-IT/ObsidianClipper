@@ -6,7 +6,11 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "convert": "tsx src/convertBackticksToTildes.ts",
+    "convert:dry-run": "tsx src/convertBackticksToTildes.ts --dry-run",
+    "check": "tsx src/checkAndConvert.ts",
+    "check:convert": "tsx src/checkAndConvert.ts --convert"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.4",
