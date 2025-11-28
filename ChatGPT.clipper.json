@@ -4,7 +4,7 @@
   "behavior": "create",
   "noteNameFormat": "{{title}}",
   "path": "Clippings/ChatGPT/{{selector:time|attr:datetime|date:\"YYYY\"}}",
-  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\ncreated: {{selector:time|attr:datetime|date:\"YYYY-MM-DD\"}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: {{selector:.text-token-text-secondary|text}}\ntimestamp: {{selector:time|attr:datetime}}\ntags:\n  - chatgpt\n  - ai\n  - clipping\n---\n\n## 💬 Konversation\n\n{{selectorHtml:#thread|turndown:codeBlockStyle=fenced,fence=```,preserveCodeLanguage=true}}\n\n---\n\n**🤖 Modell:** {{selector:.text-token-text-secondary|text}} • **📅 Erstellt:** {{selector:time|attr:datetime|date:\"DD.MM.YYYY\"}} • **🔗 Quelle:** [ChatGPT öffnen]({{url}})",
+  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\ncreated: {{selector:time|attr:datetime|date:\"YYYY-MM-DD\"}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: {{selector:.text-token-text-secondary|text}}\ntimestamp: {{selector:time|attr:datetime}}\ntags:\n  - chatgpt\n  - ai\n  - clipping\n---\n\n## 💬 Konversation\n\n{{selectorHtml:#thread|turndown:codeBlockStyle=fenced,fence=~~~,preserveCodeLanguage=true}}\n\n---\n\n**🤖 Modell:** {{selector:.text-token-text-secondary|text}} • **📅 Erstellt:** {{selector:time|attr:datetime|date:\"DD.MM.YYYY\"}} • **🔗 Quelle:** [ChatGPT öffnen]({{url}})",
   "properties": [
     {
       "id": "title",
