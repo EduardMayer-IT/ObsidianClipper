@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1.0",
-  "name": "ChatGPT",
+  "name": "ChatGPT (Variante 3: markdown prose)",
   "behavior": "create",
   "noteNameFormat": "{{title}}",
   "path": "Clippings/ChatGPT/{{selector:time|attr:datetime|date:\"YYYY\"}}",
@@ -48,3 +48,4 @@
     "https://chat.openai.com/c/"
   ]
 }
+

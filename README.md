@@ -37,16 +37,15 @@ Dieses Template ermöglicht es, ChatGPT-Unterhaltungen mit einem Klick als struk
 
 ## 📝 Verwendung
 
-### Basis-Verwendung
+### Basis-Verwendung (Automatisch ohne Markierung)
 
 1. Öffne eine ChatGPT-Konversation auf `chatgpt.com` oder `chat.openai.com`
-2. **Markiere die gesamte Konversation** (wichtig: manuelle Markierung erforderlich)
-   - ⚠️ **Wichtig:** Stelle sicher, dass **alle Code-Blöcke** mit markiert sind!
-   - Markiere von oben nach unten den gesamten Konversationsbereich
-   - Code-Blöcke sollten beim Markieren einen grauen Hintergrund zeigen
+2. **Keine Markierung nötig!** 🎉
 3. Klicke auf das Obsidian Web Clipper Icon in deinem Browser
 4. Wähle das "ChatGPT" Template
 5. Die Konversation wird automatisch in Obsidian gespeichert
+
+**Hinweis:** Das Template verwendet automatische Extraktion mit dem Selektor `.markdown.prose`. Falls du manuell markieren möchtest, funktioniert das auch weiterhin.
 
 ### ⚠️ Code-Blöcke werden nicht angezeigt?
 

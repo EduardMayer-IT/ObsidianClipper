@@ -1,10 +1,10 @@
 {
   "schemaVersion": "0.1.0",
-  "name": "ChatGPT",
+  "name": "ChatGPT (Variante 2: main)",
   "behavior": "create",
   "noteNameFormat": "{{title}}",
   "path": "Clippings/ChatGPT/{{selector:time|attr:datetime|date:\"YYYY\"}}",
-  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: ChatGPT\ntags:\n  - chatgpt\n  - clipping\n---\n\n## 💬 Konversation\n\n{{selectorHtml:.markdown.prose|text}}",
+  "noteContentFormat": "---\ntitle: {{title}}\nurl: {{url}}\nchat_id: {{url|split:\"/\"|slice:-1}}\nmodel: ChatGPT\ntags:\n  - chatgpt\n  - clipping\n---\n\n## 💬 Konversation\n\n{{selectorHtml:main|text}}",
   "properties": [
     {
       "id": "title",
@@ -48,3 +48,4 @@
     "https://chat.openai.com/c/"
   ]
 }
+

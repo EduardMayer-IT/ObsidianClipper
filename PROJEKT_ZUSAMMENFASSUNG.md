@@ -19,10 +19,14 @@ Ein Template für den Obsidian Web Clipper zum automatisierten Speichern von Cha
 - **Markdown-Konvertierung:** Text und Code-Blöcke werden sauber konvertiert
 - **TDD-Implementation:** TypeScript-Modul mit 13 Tests, 100% Line/Function Coverage
 
-### ❌ Was nicht funktioniert
+### ✅ Neu implementiert
 
-- **Automatisches Clippen ohne Markierung:** Code-Blöcke werden nicht erfasst
-- **Selector-basierte Extraktion:** Verschiedene CSS-Selektoren (`#thread`, `.markdown.prose`, `article[data-testid^="conversation-turn"]`) scheitern
+- **Automatisches Clippen ohne Markierung:** ✅ Funktioniert mit `.markdown.prose` Selektor
+- **Selector-basierte Extraktion:** ✅ `.markdown.prose` erfasst Assistenten-Antworten automatisch
+
+### ⚠️ Bekannte Einschränkungen
+
+- **User-Nachrichten:** Der `.markdown.prose` Selektor erfasst primär Assistenten-Antworten
 - **Turndown-Integration im Browser:** `{{selectorHtml:...|turndown:fence=~~~}}` funktioniert nicht wie erwartet
 - **Bedingte Logik:** Handlebars `{{#if content}}...{{else}}...{{/if}}` wird nicht unterstützt
 
